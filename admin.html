@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员后台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="admin-view" class="active">
+        <header class="admin-header">
+            <h1>SQL 学习助手 - 管理员后台</h1>
+            <div>
+                <span>欢迎, <strong id="admin-username"></strong></span>
+                <!-- 新增修改密码按钮 -->
+                <button id="change-password-btn" class="secondary-btn">修改密码</button>
+                <button id="logout-btn">退出登录</button>
+            </div>
+        </header>
+        <main class="admin-main">
+            <!-- 发布每日一题 -->
+            <section class="admin-card">
+                <h2>发布每日一题</h2>
+                <div class="form-group">
+                    <label>知识点 (用逗号分隔):</label>
+                    <input type="text" id="ai-topics" placeholder="e.g., GROUP BY, HAVING">
+                    <button id="ai-generate-btn">AI 生成题目</button>
+                </div>
+                <div id="ai-result" style="display:none;">
+                    <hr>
+                    <div class="form-group">
+                        <label for="question-title">题目名称:</label>
+                        <input type="text" id="question-title" placeholder="例如：查询高薪部门">
+                    </div>
+                    <div class="form-group">
+                        <label for="question-text">题目描述:</label>
+                        <textarea id="question-text" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="correct-sql">正确SQL:</label>
+                        <textarea id="correct-sql" rows="4"></textarea>
+                    </div>
+                    <button id="publish-btn">确认发布</button>
+                </div>
+            </section>
+
+            <!-- 用户管理 -->
+            <section class="admin-card">
+                <h2>用户管理</h2>
+                <table id="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>积分</th>
+                            <th>管理员权限</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 用户数据将在此动态插入 -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
